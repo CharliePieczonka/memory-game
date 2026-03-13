@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import GameCard from './GameCard';
 
-function App() {
+function MemoryGame() {
   const [data, setData] = useState("")
   const [loading, setLoading] = useState(true)
   const [imgUrl, setImgUrl] = useState("")
@@ -28,7 +28,7 @@ function App() {
         console.log(url)
         console.log(name)
 
-        setData(result)
+        setData(result[rand])
         setImgUrl(url)
         setCountry(name)
       }
@@ -43,16 +43,24 @@ function App() {
     getData()
   }, [])
 
-  
-
   return (
     <>
-      {!loading && <h1>{country}</h1>}
-      <div className="card">
-        {!loading && <img src={imgUrl}></img>}
+      <div className="header">
+        <h1>Memory Game</h1>
+        <div className="icons-div">
+          <a href="https://www.linkedin.com/in/charlie-pieczonka/" target="_blank"><FontAwesomeIcon icon={faLinkedin} className="header-icon"/></a>
+          <a href="https://github.com/CharliePieczonka" target="_blank"><FontAwesomeIcon icon={faGithub} className="header-icon"/></a>
+        </div>
+      </div>
+      <div className="main">
+        {!loading && 
+          <GameCard 
+            countryData={data}
+          />
+        }
       </div>
     </>
   )
 }
 
-export default App
+export default MemoryGame

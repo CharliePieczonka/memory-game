@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 1em 2em;
+  position: inherit;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.header h1 {
+  margin-bottom: 0;
+}
+
+.icons-div {
+  display: flex;
+  gap: 1.5em;
+}
+
+a { color: inherit; } 
+
+.header-icon {
+  height: 3em;
+  width: 3em;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
